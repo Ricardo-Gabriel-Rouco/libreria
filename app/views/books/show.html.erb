@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-9">
+    <%= image_tag(@book.image_url, width: '200, 300') if @book.image.present?%>
+  </div>
+  <div class="col-md-3">
+    <p><b>Titulo: </b><%= @book.title %></p>
+    <p><b>Autor: </b><%= @book.author %></p>
+    <p><b>Comentario: </b><%= @book.comment %></p>
+    <p><b>Subido: </b><%= @book.created_at %></p>
+    <p class="btn btn-light">
+      <%= link_to 'Descargar Libro', @book.attachment.url %>
+    </p>
+    <p>
+      <%= link_to 'Editar', edit_book_path(@book)%>
+      <%= link_to 'Volver', books_path%>
+    </p>
+  </div>
+</div>
+
+    <p class="btn btn-light">
+      <%= link_to 'Descargar Libro', @book.attachment.url %>
+    </p>

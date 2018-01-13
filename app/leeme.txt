@@ -1,0 +1,7 @@
+Tarod, para que mas o menos entiendas de que va cada cosa, los html estan en la carpeta views,
+de donde se desprende todo, es decir la plantilla principal que contiene lo que seria el titulo,
+a futuro el menu de navegacion y demas esta en la carpeta layouts y es el archivo application.html.erb
+luego en books te vas a ir dando cuenta que tiene exactamente cada cosa, supongo que sabras diferenciar
+cual es cada variable de rails.
+por ultimo, en application.html.erb esta el CDN de bootstrap, creo que es el v4.0
+y en la carpeta assests/stylesheet, esta application.css que es css auxiliar que estaba usando
