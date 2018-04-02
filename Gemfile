@@ -10,9 +10,10 @@ end
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-gem 'carrierwave'
-gem 'mini_magick', '4.8.0'
-gem 'devise'
+gem 'carrierwave' #subida de archivos
+gem 'mini_magick', '4.8.0' #facilita la subida deimagenes
+gem 'devise' #gema de usuarios
+gem 'cancancan', '~> 2.0' #permisos de ususarios
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -53,10 +54,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do
-  gem 'pg'
-  gem 'unicorn'
-end
+#group :production do
+#  gem 'pg'
+#  gem 'unicorn'
+#end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

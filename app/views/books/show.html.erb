@@ -6,12 +6,18 @@
     <p><b>Titulo: </b><%= @book.title %></p>
     <p><b>Autor: </b><%= @book.author %></p>
     <p><b>Comentario: </b><%= @book.comment %></p>
+    <p><b>Usuario: </b><%= @book.user.id %></p>
     <p><b>Subido: </b><%= @book.created_at %></p>
-    <p class="btn btn-light">
-      <%= link_to 'Descargar Libro', @book.attachment.url %>
-    </p>
+    
     <p>
-      <%= link_to 'Editar', edit_book_path(@book)%>
+      <% if user_signed_in? %>
+        <% if can? :update, @book %>
+          <%= link_to 'Editar', edit_book_path(@book)%>
+        <% end %>
+        <% if can? :destroy, @book %>
+        <%= link_to 'Eliminar', @book, data: { confirm: 'Estas seguro?' }, method: :delete%>
+        <% end %>
+      <% end %>
       <%= link_to 'Volver', books_path%>
     </p>
   </div>

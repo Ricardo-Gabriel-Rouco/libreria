@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+  load_and_authorize_resource :except => [:index, :show]
 
   # GET /books
   # GET /books.json
@@ -10,6 +12,10 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+  end
+
+  def mybooks
+    @books = Book.mybooks
   end
 
   # GET /books/new
@@ -24,7 +30,13 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.new(book_params)
+    #if @book.save
+    #  redirect_to @book
+    #else
+    #  render :new
+    #end
+
 
     respond_to do |format|
       if @book.save
@@ -55,20 +67,22 @@ class BooksController < ApplicationController
   # DELETE /books/1.json
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to books_path
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
+    
+    def correct_user
+      correct_user = params[:user_id]      
+    end
+
     def set_book
       @book = Book.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :image, :comment, :attachment)
+      params.require(:book).permit(:title, :author, :image, :comment, :attachment, :user_id)
     end
 end
