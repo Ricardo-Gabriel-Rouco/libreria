@@ -1,15 +1,10 @@
-# README
+* Version de Ruby On Rails
+Ruby on Rails 5.0.1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Dependencias del sistema
+Basicamente ninguna mas que las requeridas para instalar Rails, Ruby y si quieren usar un BBDD que no sea Sqlite deberian seguir las especificaciones de cada uno, ire agregando en el futuro los tutoriales respectivos
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
+* Configuracion
 
 * Database creation
 
